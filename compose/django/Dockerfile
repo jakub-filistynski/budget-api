@@ -21,5 +21,3 @@ RUN chmod +x ./start.sh
 
 WORKDIR /code
 
-
-# CMD tail -f /dev/null
