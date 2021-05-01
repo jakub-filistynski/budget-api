@@ -1,7 +1,7 @@
-from .core import *
+from .core import *  # noqa: F403
 
-INSTALLED_APPS += [
-    'django_extensions',
+INSTALLED_APPS += [  # noqa: F405
+    "django_extensions",
 ]
 
 ALLOWED_HOSTS = ["*"]
