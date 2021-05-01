@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+    api:
+        build:
+            context: .
+            dockerfile: ./compose/django/Dockerfile
+        restart: on-failure
+        depends_on:
+            - postgres
+        volumes:
+            - .:/code
+        env_file:
+            - ./.envs/.env
+        ports:
+            - "8000:8000"
+        command: /start.sh
+        networks:
+            - default
+
+    postgres:
+        image: postgres:13.2
+        restart: on-failure
+        hostname: db
+        container_name: db
+        environment:
+            POSTGRES_DB: postgres
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: postgres
+        env_file:
+            - ./.envs/.env
+        ports:
+            - "54320:5432"
+        networks:
+            - default
