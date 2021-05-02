@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     "allauth",
     "allauth.account",
     "dj_rest_auth.registration",
+    "apps.utils",
+    "apps.users",
 ]
 
 MIDDLEWARE = [
@@ -139,3 +141,5 @@ REST_FRAMEWORK = {
 SITE_ID = 1
 
 ACCOUNT_EMAIL_VERIFICATION = "none"
+
+AUTH_USER_MODEL = "users.User"
