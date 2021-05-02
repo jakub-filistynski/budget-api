@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     "config",
     "apps.utils",
     "apps.users",
+    "apps.budgets",
 ]
 
 MIDDLEWARE = [
