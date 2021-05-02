@@ -14,4 +14,4 @@ class UserFactory(factory.django.DjangoModelFactory):
     is_staff = False
     is_superuser = False
     is_active = True
-    password = factory.Faker("password")
+    password = factory.PostGenerationMethodCall("set_password", "password")
