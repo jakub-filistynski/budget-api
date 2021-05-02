@@ -20,4 +20,3 @@ COPY ./compose/django/start.sh ./start.sh
 RUN chmod +x ./start.sh
 
 WORKDIR /code
-
