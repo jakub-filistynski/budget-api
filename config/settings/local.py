@@ -5,3 +5,5 @@ INSTALLED_APPS += [  # noqa: F405
 ]
 
 ALLOWED_HOSTS = ["*"]
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
