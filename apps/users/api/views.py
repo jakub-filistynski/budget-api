@@ -1,6 +1,7 @@
 from rest_framework.generics import ListAPIView
 
 from apps.budgets.api.serializers import BudgetListSerializer
+from apps.budgets.filters import BudgetFilterSet
 from apps.budgets.models import Budget
 from apps.users.models import User
 
@@ -8,6 +9,7 @@ from apps.users.models import User
 class UserBudgetsListView(ListAPIView):
     queryset = Budget.objects.all()
     serializer_class = BudgetListSerializer
+    filterset_class = BudgetFilterSet
 
     def get_queryset(self):
         try:
