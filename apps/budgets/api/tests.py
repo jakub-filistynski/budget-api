@@ -57,6 +57,8 @@ class TestBudgetViewSet(APITestCase):
 
         self.assertEquals(len(results), 2)
 
+        self.client.logout()
+
     def test_budget_create(self):
         body = {}
         keys = ["name", "income_categories", "outcome_categories"]
@@ -85,5 +87,8 @@ class TestBudgetViewSet(APITestCase):
         }
         budget_count_before = Budget.objects.count()
         response = self.client.post(reverse(self.LIST_USER_BUDGETS_REVERSE), body)
+
         self.assertEquals(response.status_code, status.HTTP_201_CREATED)
         self.assertTrue(budget_count_before < Budget.objects.count())
+
+        self.client.logout()
