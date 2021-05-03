@@ -14,5 +14,9 @@ class ActionSerializerMixin:
     def get_serializer_class(self):
         request_method_name = self.request.method.lower()
         if hasattr(self, "action"):
-            return (self.action_serializers.get(self.action, self.serializer_class),)
-        return self.action_serializers.get(request_method_name, self.serializer_class)
+            return self.action_serializer_classes.get(
+                self.action, self.serializer_class
+            )
+        return self.action_serializer_classes.get(
+            request_method_name, self.serializer_class
+        )
