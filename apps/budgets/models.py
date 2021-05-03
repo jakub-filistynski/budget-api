@@ -12,6 +12,18 @@ class Budget(BaseModel):
         User, through="Membership", related_name="shared_budgets"
     )
 
+    @property
+    def income_categories(self):
+        from apps.categories.models import Category
+
+        return self.categories.filter(finance_type=Category.CategoryType.INCOME)
+
+    @property
+    def outcome_categories(self):
+        from apps.categories.models import Category
+
+        return self.categories.filter(finance_type=Category.CategoryType.OUTCOME)
+
 
 class Membership(models.Model):
     budget = models.ForeignKey(Budget, on_delete=models.CASCADE)
