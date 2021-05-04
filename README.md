@@ -1,6 +1,6 @@
 # Family budget API
 ## Description
-The application allow to register new users. Each user can create a list of any number of budgets and share it with any number of users. 
+The application allows to register new users. Each user can create a list of any number of budgets and share it with any number of users. 
 The budget consists of income and expenses. They are grouped into categories.
 
 ## Technologies
