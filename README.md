@@ -12,15 +12,24 @@ The budget consists of income and expenses. They are grouped into categories.
 * Docker
 
 ## Instruction
-Build project:
-```sh
-$ docker-compose build
-```
+1. Setup .env:
+ ```sh
+$ cd .envs
+$ mv .env.example .env
+$ # Set SECRET_KEY in .env
+ ```
 
-Run project: 
-```sh
-$ docker-compose up
-```
+2. Build project:
+ ```sh
+ $ docker-compose build
+ ```
+
+3. Run project: 
+ ```sh
+ $ docker-compose up
+ ```
+
+Open http://localhost:8000 to view it in the browser.
 
 Load fixtures: 
 ```sh
