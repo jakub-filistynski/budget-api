@@ -10,3 +10,7 @@ class User(AbstractUser):
     @property
     def full_name(self):
         return self.first_name + " " + self.last_name
+
+    @property
+    def all_budgets(self):
+        return (self.budgets.all() | self.shared_budgets.all()).distinct()
