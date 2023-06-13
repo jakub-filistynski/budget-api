@@ -1,0 +1,21 @@
+name: Main project workflow
+
+on:
+  pull_required:
+    types: [ready_for_review, opened, synchronize, reopened]
+    branches: [develop, master]
+  push:
+  branches: [develop, master]
+
+
+jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+      - name: Run pre-commit
+        uses: pre-commit/action@v3.0.0
