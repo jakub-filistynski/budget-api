@@ -1,11 +1,11 @@
 name: Main project workflow
 
 on:
-  pull_required:
+  pull_request:
     types: [ready_for_review, opened, synchronize, reopened]
     branches: [develop, master]
   push:
-  branches: [develop, master]
+    branches: [develop, master]
 
 
 jobs:
