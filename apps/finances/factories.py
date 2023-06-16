@@ -11,7 +11,7 @@ class FinanceFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Finance
 
-    name = factory.Faker("pystr")
+    name = factory.Faker("company")
     money_amount = random.randint(0, 100)
     budget = factory.SubFactory(BudgetFactory)
     category = factory.SubFactory(CategoryFactory)
