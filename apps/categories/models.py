@@ -20,3 +20,6 @@ class Category(BaseModel):
         default=CategoryType.INCOME,
         verbose_name=_("Typ kategorii"),
     )
+
+    def __str__(self) -> str:
+        return self.name
