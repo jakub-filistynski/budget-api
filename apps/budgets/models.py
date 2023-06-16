@@ -25,11 +25,12 @@ class Budget(BaseModel):
         return self.categories.filter(finance_type=Category.CategoryType.OUTCOME)
 
     def __str__(self) -> str:
-        return f"Budget: {self.short_name}"
-
-    @property
-    def short_name(self) -> str:
-        return self.name if len(self.name) < 10 else self.name[:10] + "..."
+        MAX_NAME_LENGTH = 20
+        return (
+            self.name
+            if len(self.name) < MAX_NAME_LENGTH
+            else self.name[:MAX_NAME_LENGTH] + "..."
+        )
 
 
 class Membership(models.Model):
