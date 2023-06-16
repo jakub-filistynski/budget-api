@@ -1,6 +1,5 @@
 exclude: "docs|node_modules|migrations|.git|.tox|static"
 default_stages: [commit]
-fail_fast: true
 default_language_version:
   python: python3.9
 
@@ -19,11 +18,11 @@ repos:
         types: [python]
 
   - repo: https://github.com/ambv/black
-    rev: 20.8b1
+    rev: 23.3.0
     hooks:
       - id: black
 
-  - repo: https://gitlab.com/pycqa/flake8
+  - repo: https://github.com/pycqa/flake8
     rev: 3.9.1
     hooks:
       - id: flake8

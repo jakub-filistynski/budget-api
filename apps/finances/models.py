@@ -7,7 +7,6 @@ from apps.utils.models import BaseModel
 
 
 class Finance(BaseModel):
-
     name = models.CharField(max_length=100, verbose_name=_("Nazwa wpłaty/wypłaty"))
     money_amount = models.PositiveIntegerField()
     budget = models.ForeignKey(
