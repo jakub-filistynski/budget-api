@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+    api:
+        build:
+            context: .
+            dockerfile: ./compose/django/Dockerfile.test
+        restart: on-failure
+        depends_on:
+            - postgres
+        volumes:
+            - .:/code
+        environment:
+            - DJANGO_SETTINGS_MODULE=config.settings.core
+            - DEBUG=true
+            - SECRET_KEY=secret
+        entrypoint: bash -c "./compose/django/wait-for-it.sh -t 300 db:5432 && python manage.py migrate && python manage.py test"
+        networks:
+            - default
+
+    postgres:
+        image: postgres:13.2
+        restart: on-failure
+        hostname: db
+        container_name: db
+        environment:
+            POSTGRES_DB: postgres
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: postgres
+        networks:
+            - default
