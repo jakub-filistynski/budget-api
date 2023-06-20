@@ -8,7 +8,7 @@ class BudgetFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Budget
 
-    name = factory.Faker("pystr")
+    name = factory.Faker("job")
     owner = factory.SubFactory(UserFactory)
 
 
