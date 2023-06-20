@@ -1,8 +1,9 @@
-from typing import Any, List, Tuple
 import uuid
+from typing import Any, List, Tuple
+
+from django.contrib import admin
 from django.http import Http404
 from django.utils.translation import gettext_lazy as _
-from django.contrib import admin
 
 from apps.categories.models import Category
 
@@ -33,7 +34,9 @@ class FinanceCategoryListFilter(admin.SimpleListFilter):
             raise Http404(_("Niepoprawny identyfikator kategorii"))
 
         # TODO: Ugly check if the category belongs to the budget. Need to find better workaround for it in the futere.
-        if not Category.objects.filter(id=category_id, budget__id=request.GET["budget__id__exact"]).exists():
+        if not Category.objects.filter(
+            id=category_id, budget__id=request.GET["budget__id__exact"]
+        ).exists():
             return queryset
 
         return queryset.filter(category__id=category_id)
